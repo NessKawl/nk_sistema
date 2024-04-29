@@ -6,14 +6,31 @@
     --cor1opacity: #ffc400e6;
     --cor2: #FFFFFF;
     --cor3: #262626;
+    --cor4: #D9D9D9;
 
     --montserrat: 'Montserrat', sans-serif;
     --greatVibes: 'Great Vibes', cursive;
 }
 
+.bg-white {
+    background-color: var(--cor2);
+}
+
+.bg-secondary {
+    background-color: var(--cor4);
+}
+
 .bg-balck {
     background-color: var(--cor3);
 }
+
+.bg-yellow {
+    background-color: var(--cor1);
+}
+
+.bg-yellow-opacity:hover {
+    background-color: var(--cor1opacity);
+} 
 
 .text-yellow {
     color: var(--cor1);
@@ -26,14 +43,6 @@
 .font-montserrat {
     font-family: var(--montserrat);
 }
-
-.bg-yellow {
-    background-color: var(--cor1);
-}
-
-.bg-yellow-opacity:hover {
-    background-color: var(--cor1opacity);
-} 
 
 .cabecalho-titulo-h2 {
     font-family: var(--montserrat);
