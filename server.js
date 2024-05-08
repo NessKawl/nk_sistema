@@ -3,6 +3,12 @@ const app = express()
 
 const port = 8080
 
+app.use(express.static('public'))
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html')
+})
+
 // CONEXÃO DATABASE 
 const mysql = require('mysql')
 const { pid } = require('process')
@@ -58,10 +64,6 @@ connection.query('SELECT * from produto', (err, row, fields) => {
 // })
 
 
-app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
-})
 
 app.listen(port)
