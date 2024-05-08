@@ -1,0 +1,23 @@
+{
+  "name": "nk_sistema",
+  "version": "1.0.0",
+  "description": "Sistema para bares, restaurantes, lanchonetes, etc",
+  "main": "index.js",
+  "scripts": {
+    "test": "teste"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "html",
+    "css",
+    "node.js"
+  ],
+  "author": "Marcos Almeida",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql": "^2.18.1",
+    "node": "^22.0.0"
+  }
+}
