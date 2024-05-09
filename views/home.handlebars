@@ -6,7 +6,6 @@
 </head>
 
 <body class="bg-balck">
-<h1>Home handlebars</h1>
 
     <header class="text-center text-yellow bg-balck">
         <div class="py-4">
@@ -22,8 +21,11 @@
                 <button class="btn bg-yellow bg-yellow-opacity text-light w-50 fs-3 rounded-5 font-montserrat"
                     data-bs-toggle="modal" data-bs-target="#exampleModal">Novo Pedido</button>
             </div>
+            <div class="w-100 d-flex justify-content-center mb-4">
+                <a class="btn bg-yellow bg-yellow-opacity w-50 rounded-5 fs-3 font-montserrat text-light" href="pedidos">Pedidos</a>
+            </div>
             <div class="w-100 d-flex justify-content-center">
-                <button class="btn bg-yellow bg-yellow-opacity text-light w-50 rounded-5 fs-3 font-montserrat" id="btnPedidos">Pedidos</button>
+                <a class="btn bg-yellow bg-yellow-opacity w-50 rounded-5 fs-3 font-montserrat text-light" href="cad-produtos">Gerencia de Produtos</a>
             </div>
         </section>
 
@@ -57,7 +59,7 @@
                                 <input class="form-control w-50" type="text" name="nomeCliente" id="nomeCliente" placeholder="Cliente">
                             </div> --}}
 
-                            <form action="/add-mesa" method="POST">
+                            <form action="/add-pedido" method="POST">
                                 <label class="form-label fs-5" >Por favor, digite o n° da mesa</label> 
                                 <input class="form-control w-50" type="number" name="nMesa" id="nMesa" placeholder="N° Mesa">
 
