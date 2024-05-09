@@ -4,7 +4,7 @@
   "description": "Sistema para bares, restaurantes, lanchonetes, etc",
   "main": "index.js",
   "scripts": {
-    "test": "teste"
+    "dev": "nodemon index.js"
   },
   "keywords": [
     "node",
