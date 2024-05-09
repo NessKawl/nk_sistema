@@ -30,15 +30,12 @@
             <div class="row">
                 {{#each produtos}}
                     <div class="col-lg-3 text-center">
-                        <div class="border rounded-3 p-3 mb-4">
+                        <div class="bg-white rounded-3 p-3 mb-4">
                             <figure>
                                 <img src="{{dataValues.img}}" alt="">
                             </figure>
-                            <p>ID: {{dataValues.id}}</p>
-                            <p>Nome: {{dataValues.nome}}</p>
-                            <p>Valor: {{dataValues.preco}}</p>
-                            <p>Cadastrado: {{#formatDate dataValues.createdAt}}{{/formatDate}}</p>
-                            <a href="/del-produto/{{dataValues.id}}"><button class="btn bg-yellow bg-yellow-opacity text-light">Excluir</button></a>
+                            <p><strong>{{dataValues.nome}}</strong></p>
+                            <p>R$: {{dataValues.preco}},00</p>
                         </div>
                     </div>
                 {{/each}}
