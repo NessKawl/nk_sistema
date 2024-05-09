@@ -1,69 +1,58 @@
 const express = require('express')
 const app = express()
+const handlebars = require('express-handlebars')
+const bodyParser = require('body-parser')
+const Pedido = require('./models/Pedido.js')
 
 const port = 8080
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
+app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
+app.set('view engine', 'handlebars')
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+app.get('/', (req, res)=>{
+    res.render('home')
 })
 
-// CONEXÃO DATABASE 
-const mysql = require('mysql')
-const { pid } = require('process')
-
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '10072005',
-    database: 'nksystem'
+app.get('/almoco', (req, res)=> {
+    res.render('almoco')
 })
 
-connection.connect((err) => {
-    if (err) {
-        console.log('erro de conexão' + err.stack)
-        return
-    }
-
-    console.log('Conectado com sucesso');
+app.get('/bebidas', (req, res)=> {
+    res.render('bebidas')
 })
 
-connection.query('SELECT * from pedido', (err, row, fields) => {
-    if (!err) {
-        console.log('Resultado Pedido', row);
-    } else {
-        console.log('Erro ao fazer a consulta');
-    }
+app.get('/lanches', (req, res)=> {
+    res.render('lanches')
 })
 
-connection.query('SELECT * from produto', (err, row, fields) => {
-    if (!err) {
-        console.log('Resultado Produto', row);
-    } else {
-        console.log('Erro ao fazer a consulta');
-    }
+app.get('/pedidos', (req, res)=> {
+    res.render('pedidos')
 })
 
+app.get('/porcoes', (req, res)=> {
+    res.render('porcoes')
+})
 
+app.get('/salgados', (req, res)=> {
+    res.render('salgados')
+})
 
-// connection.query("INSERT INTO produto (nome, valor) VALUES ('Batata Frita', 18)", (err, result)=>{
-//     if(!err) {
-//         console.log('Pedido cadastrado com sucesso');
-//     } else {
-//         console.log('Erro ao criar o pedido');
-//     }
-// })
-
-// connection.query("UPDATE pedido SET nome_cliente = 'Marcos' WHERE idpedido = 1", (err, result)=>{
-//     if(!err) {
-//         console.log('Pedido atualizado com sucesso');
-//     } else {
-//         console.log('Erro ao atualizar o pedido');
-//     }
-// })
-
-
-
+app.post('/add-mesa', (req, res)=>{
+    Pedido.create({
+        numeroMesa: req.body.nMesa,
+        nomeCliente: req.body.nomeCliente
+    }).then(() => {
+        res.redirect('/porcoes')
+        //res.send('Cadastrado com sucesso!')
+    }).catch((err) => {
+        res.send('Erro ao cadastrar o Pedido ' + err)
+    });
+    //res.send('Número Mesa:' + req.body.numeroMesa + '<br> Cliente: ' + req.body.nomeCliente)
+})
 
 app.listen(port)

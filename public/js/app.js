@@ -19,14 +19,8 @@ function validacao() {
         divErro.classList.add('alert')
         divErro.classList.add('alert-success')
         divErro.innerHTML = 'Pedido criado!'
-            
-        window.location.href = '/pages/porcoes.html'
     }
 
-}
-
-function pedidos() {
-    window.location.href = '/pages/pedidos.html'
 }
 
 function removeClass() {
@@ -36,6 +30,5 @@ function removeClass() {
 }
 
 btnContinuar.addEventListener('click', validacao)
-btnPedidos.addEventListener('click', pedidos)
 
 // pages
