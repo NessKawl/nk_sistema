@@ -31,6 +31,7 @@
                             </figure>
                             <p>ID: {{dataValues.id}}</p>
                             <p><strong>{{dataValues.nome}}</strong></p>
+                            <p>Categoria: {{dataValues.categoria}}</p>
                             <p>R$: {{dataValues.preco}},00</p>
                             <p>Atualizado: {{#formatDate dataValues.updatedAt}}{{/formatDate}}</p>
                             <a href="/del-produto/{{dataValues.id}}"><button class="btn bg-yellow bg-yellow-opacity text-light">Excluir</button></a>

@@ -1,9 +1,13 @@
+const { type } = require('os');
 const db = require('./db')
 const Pedido =  db.sequelize.define('pedidos', {
     numeroMesa: {
         type: db.Sequelize.DOUBLE
     },
     nomeCliente: {
+        type: db.Sequelize.STRING
+    },
+    garcom: {
         type: db.Sequelize.STRING
     }
 });

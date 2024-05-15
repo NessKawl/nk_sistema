@@ -8,6 +8,9 @@ const Produto =  db.sequelize.define('produtos', {
     },
     img: {
         type: db.Sequelize.STRING
+    },
+    categoria: {
+        type: db.Sequelize.STRING
     }
 });
 

@@ -72,7 +72,8 @@ app.post('/cad-produto', (req, res)=> {
     Produto.create({
         nome: req.body.nomeProduto,
         preco: req.body.precoProduto,
-        img: req.body.imgProduto
+        img: req.body.imgProduto,
+        categoria: req.body.categoriaProduto
     }).then(()=>{
         res.redirect('/cad-produtos')
     }).catch((err)=>{
@@ -91,12 +92,14 @@ app.get('/del-produto/:id', (req, res)=>{
 })
 
 app.post('/add-pedido', (req, res)=>{
+
+
     Pedido.create({
         numeroMesa: req.body.nMesa,
-        nomeCliente: req.body.nomeCliente
+        nomeCliente: req.body.nomeCliente,
+        garcom: ""
     }).then(() => {
         res.redirect('/porcoes')
-        //res.send('Cadastrado com sucesso!')
     }).catch((err) => {
         res.send('Erro ao cadastrar o Pedido ' + err)
     });

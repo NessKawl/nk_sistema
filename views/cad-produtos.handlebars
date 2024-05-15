@@ -23,7 +23,7 @@
     <main class="container">
        <section class="d-flex justify-content-center my-5">
 
-            <form class="bg-white p-5 rounded-2"  action="/cad-produto" method="POST">
+            <form action="/cad-produto" method="POST" class="bg-white p-5 rounded-2"  >
             
                 <label class="form-label">Digite o nome do produto:</label>
                 <input class="form-control " type="text" name="nomeProduto" placeholder="Digite o nome">
@@ -32,17 +32,15 @@
                 <label class="form-label">Insira a imagem:</label>
                 <input class="form-control" type="text" name="imgProduto" placeholder="Digite o link">
 
-                <div class="m-auto">
-                    <label>Categoria</label>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected >-- Selecione --</option>
-                        <option value="porcoes" id="">Porções</option>
-                        <option value="lanches" id="">Laches</option>
-                        <option value="salgados" id="">Salgados</option>
-                        <option value="bebidas" id="">Bebidas</option>
-                        <option value="almoco" id="">Almoço</option>
-                    </select>
-                </div>
+                <label>Categoria</label>
+                <select class="form-select" aria-label="Default select example" name="categoriaPorduto">
+                    <option selected >-- Selecione --</option>
+                    <option value="porcoes" id="">Porções</option>
+                    <option value="lanches" id="">Laches</option>
+                    <option value="salgados" id="">Salgados</option>
+                    <option value="bebidas" id="">Bebidas</option>
+                    <option value="almoco" id="">Almoço</option>
+                </select>
             
                 <div class="d-flex justify-content-end mt-3">
                     <button class="btn bg-yellow bg-yellow-opacity" type="submit">Cadastrar</button>
