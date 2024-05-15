@@ -92,12 +92,10 @@ app.get('/del-produto/:id', (req, res)=>{
 })
 
 app.post('/add-pedido', (req, res)=>{
-
-
     Pedido.create({
         numeroMesa: req.body.nMesa,
         nomeCliente: req.body.nomeCliente,
-        garcom: ""
+        garcom: req.body.nomeGarcom
     }).then(() => {
         res.redirect('/porcoes')
     }).catch((err) => {
