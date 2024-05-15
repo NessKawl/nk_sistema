@@ -7,7 +7,7 @@ const Pedido = require('./models/Pedido.js')
 const Produto = require('./models/Produto.js')
 const { where } = require('sequelize')
 
-const port = 8080
+const port = 3000
 
 app.use(express.static('public'));
 
