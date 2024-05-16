@@ -25,6 +25,22 @@
 
     <main class="container">
 
+        <section class="mt-3">
+            <div class="row">
+                {{#each produtos}}
+                    <div class="col-lg-3 text-center">
+                        <div class="bg-white rounded-3 p-3 mb-4">
+                            <figure>
+                                <img src="{{dataValues.img}}" alt="">
+                            </figure>
+                            <p><strong>{{dataValues.nome}}</strong></p>
+                            <p>R$: {{dataValues.preco}},00</p>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </section>
+
     <!-- Confirmar pedido -->
         <section>
             <div class="btn-float-left">

@@ -33,31 +33,58 @@ app.get('/menu', (req, res)=>{
     res.render('menu')
 })
 
-app.get('/almoco', (req, res)=> {
-    res.render('almoco')
-})
-
-app.get('/bebidas', (req, res)=> {
-    res.render('bebidas')
-})
-
-app.get('/lanches', (req, res)=> {
-    res.render('lanches')
-})
-
-app.get('/pedidos', (req, res)=> {
-    Pedido.findAll().then((pedidos)=>{
-        res.render('pedidos', {pedidos: pedidos})
-    })})
-
 app.get('/porcoes', (req, res)=> {
-    Produto.findAll().then((produtos)=>{
+    Produto.findAll({
+        where: {
+            categoria: 'Porções'},
+    }).then((produtos)=>{
         res.render('porcoes', {produtos: produtos})
     })
 })
 
+app.get('/lanches', (req, res)=> {
+    Produto.findAll({
+        where: {
+            categoria: 'Lanches'},
+    }).then((produtos)=>{
+        res.render('lanches', {produtos: produtos})
+    })
+})
+
 app.get('/salgados', (req, res)=> {
-    res.render('salgados')
+    Produto.findAll({
+        where: {
+            categoria: 'Salgados'},
+    }).then((produtos)=>{
+        res.render('salgados', {produtos: produtos})
+    })
+})
+
+app.get('/bebidas', (req, res)=> {
+    Produto.findAll({
+        where: {
+            categoria: 'Bebidas'},
+    }).then((produtos)=>{
+        res.render('bebidas', {produtos: produtos})
+    })
+})
+
+app.get('/almoco', (req, res)=> {
+    Produto.findAll({
+        where: {
+            categoria: 'Almoço'},
+    }).then((produtos)=>{
+        res.render('almoco', {produtos: produtos})
+    })
+})
+
+
+
+
+app.get('/pedidos', (req, res)=> {
+    Pedido.findAll().then((pedidos)=>{
+        res.render('pedidos', {pedidos: pedidos})
+    })
 })
 
 app.get('/cad-produtos', (req, res)=> {
