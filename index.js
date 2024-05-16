@@ -29,6 +29,10 @@ app.get('/', (req, res)=>{
     res.render('home')
 })
 
+app.get('/menu', (req, res)=>{
+    res.render('menu')
+})
+
 app.get('/almoco', (req, res)=> {
     res.render('almoco')
 })
