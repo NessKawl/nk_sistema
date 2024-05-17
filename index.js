@@ -112,6 +112,19 @@ app.post('/cad-produto', (req, res)=> {
     })
 })
 
+app.post('/att-produto', (req, res)=> {
+    Produto.create({
+        nome: req.body.nomeProduto,
+        preco: req.body.precoProduto,
+        img: req.body.imgProduto,
+        categoria: req.body.categoriaProduto
+    }).then(()=>{
+        res.redirect('/lista-produtos')
+    }).catch((err)=>{
+        res.send('Erro ao cadastrar o produto ' + err)
+    })
+})
+
 app.get('/del-produto/:id', (req, res)=>{
     Produto.destroy({
         where: {'id': req.params.id}
