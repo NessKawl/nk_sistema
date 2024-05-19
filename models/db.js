@@ -2,7 +2,7 @@
 const Sequelize = require('sequelize')
 
 // realiza a conexão com o banco de dados
-const sequelize = new Sequelize('nksystem', 'root', '10072005', {
+const sequelize = new Sequelize('nksystem', 'nesskawl', 'Nk_2102*', {
     host: 'localhost',
     dialect: 'mysql'
 });
