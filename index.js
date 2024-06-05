@@ -98,6 +98,8 @@ app.get('/lista-produtos', (req, res)=> {
     })
 })
 
+
+
 // app.post Para cadastrar produto e mesa
 app.post('/cad-produto', (req, res)=> {
     Produto.create({
@@ -112,12 +114,16 @@ app.post('/cad-produto', (req, res)=> {
     })
 })
 
-app.post('/att-produto', (req, res)=> {
-    Produto.create({
+app.get('/att-produto/:id', (req, res)=> {
+    Produto.update({
+        multi: true,
+        where:{
+            'id': req.params.id
+        },
         nome: req.body.nomeProduto,
         preco: req.body.precoProduto,
         img: req.body.imgProduto,
-        categoria: req.body.categoriaProduto
+        categoria: req.body.categoriaProduto       
     }).then(()=>{
         res.redirect('/lista-produtos')
     }).catch((err)=>{
@@ -130,11 +136,12 @@ app.get('/del-produto/:id', (req, res)=>{
         where: {'id': req.params.id}
     }).then(()=>{
         res.redirect('/lista-produtos')
-    }).catch(()=>{
-        res.send('Erro ao excluir produto!!')
+    }).catch((err)=>{
+        res.send('Erro ao excluir produto!!' + err) 
     })
 })
 
+// Pedido
 app.post('/add-pedido', (req, res)=>{
     Pedido.create({
         numeroMesa: req.body.nMesa,
